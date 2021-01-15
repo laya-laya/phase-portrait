@@ -88,7 +88,7 @@ def show(b,surf,speed=3,slideright=True):
 def play_movie(x=0,y=0,name='Losing grip.mpg'):
 	'''plays a video file'''
 	
-	print 'clicck'
+	print ('clicck')
 	size=[320,240]
 	flags=pygame.SRCALPHA|pygame.HWSURFACE|pygame.HWACCEL
 	os.environ['SDL_VIDEO_WINDOW_POS'] = str(x)+','+str(y)
@@ -290,12 +290,12 @@ class graph:
 		xaxis=self.xaxis
 		yaxis=self.yaxis
 		if len(xaxis) != len(yaxis):
-			print "different array lengths for plotting : abort"
+			print ("different array lengths for plotting : abort")
 			return
 		surface=pygame.Surface((self.width,self.height),pygame.SRCALPHA)
 		self.ln=len(xaxis)
 		if(len(self.yaxis)>2):
-			print 'asdsa'
+			print ('asdsa')
 			self.dy=(self.gh)/(max(yaxis)-min(yaxis))
 			self.dx=float(self.gw-1)/abs(xaxis[-1]-xaxis[0])
 
@@ -313,7 +313,7 @@ class graph:
 				txt=sfont.render('%.2f'%(a),1,self.fontcolor,colors['black'])
 				surface.blit(txt,(xp-7,self.gh+3) )
 				a+=dx/10.0
-			print self.ln
+			print (self.ln)
 			for a in range(self.ln):								#make plottable list from numpy array
 				yp=self.gh/2-int(yaxis[a]*self.dy)
 				xp=int( (xaxis[a]-xoffset)*self.dx+self.xgap)
@@ -336,7 +336,7 @@ class graph:
 			if b==1:
 					self.xaxis=np.insert(self.xaxis,0,self.mx)
 					self.yaxis=np.insert(self.yaxis,0,self.my)
-					print 'asdsa'
+					print ('asdsa')
 			a=check(self.controls,x-self.x,y-self.y,b)
 			self.help='plot window'
 			if a:
@@ -350,7 +350,7 @@ class graph:
 				elif a==self.images_menu:
 					if a.highlighted!=-1:
 						os.system('eog'+' ./plots/'+a.selection)
-						print 'asdas'
+						print ('asdas')
 						self.make_room=False
 					
 
@@ -800,7 +800,7 @@ class rotating_menu:
 				for a in self.items:
 					if a.inside(x-self.x,y-self.y,0):
 						if pos==self.midway:
-							print 'bingo'
+							print ('bingo')
 						else:
 							self.scrolling_to=a.id
 							self.scrolling_direction=5*abs(pos-self.midway)/(pos-self.midway)
